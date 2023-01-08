@@ -3,7 +3,8 @@ public class Main {
         printYear(2021);
         task2();
         checkOS(2020, 0);
-
+        task3();
+        System.out.println(printDeliveryDays(110));
     }
 
     public static void printYearResult(int year, boolean yearIsLeap) {
@@ -25,8 +26,9 @@ public class Main {
 
     public static void task2() {
         System.out.println("задание 2");
-        }
-    public static void checkOS( int deviceYear,int clientOS) {
+    }
+
+    public static void checkOS(int deviceYear, int clientOS) {
         boolean deviceIsOld = deviceOld(deviceYear);
         if (deviceIsOld) {
             System.out.print("Установите облегченную версию приложения ");
@@ -38,9 +40,28 @@ public class Main {
         } else {
             System.out.print("для Android по ссылке");
         }
+        System.out.println();
     }
-        public static boolean deviceOld(int deviceYear) {
+
+    public static boolean deviceOld(int deviceYear) {
         int currentYear = 2015;
         return deviceYear <= currentYear;
+    }
+
+    public static void task3() {
+        System.out.println("задание 3");
+    }
+
+    public static String printDeliveryDays(int deliveryDistance) {
+        int deliveryDays = 1;
+        if (deliveryDistance > 20) {
+            deliveryDays++;
         }
+        if (deliveryDistance > 60 && deliveryDistance <= 100) {
+            deliveryDays++;
+        } else if (deliveryDistance > 100) {
+            return "доставки нет";
+        }
+        return "Потребуется дней: " + deliveryDays;
+    }
 }
